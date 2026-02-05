@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { randomUUID } from 'crypto';
-import db from '../../models';
+import db from '../models/index';
 
 const { Session } = db;
 

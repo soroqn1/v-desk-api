@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import db from '../../models';
+import db from '../models/index';
 
 export interface AuthRequest extends Request {
   sessionId?: number;

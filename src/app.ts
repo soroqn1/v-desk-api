@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
-import db from '../models';
+import db from './models/index';
 import sessionRoutes from './routes/sessionRoutes';
 import taskRoutes from './routes/taskRoutes';
 
