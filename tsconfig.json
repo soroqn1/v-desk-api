@@ -2,10 +2,12 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
-    "lib": ["ES2020"],
+    "lib": [
+      "ES2020"
+    ],
     "allowJs": true,
-    "outDir": "./dist",
-    "rootDir": "./",
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
     "noImplicitAny": false,
     "moduleResolution": "node",
@@ -13,6 +15,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "models/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*",
+    "models/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
