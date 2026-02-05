@@ -4,7 +4,7 @@ import { AuthRequest } from '../middleware/authMiddleware';
 
 const { Answer, Option } = db;
 
-export const submitAnswer = async (req: AuthRequest, res: Response) => {
+export const submitAnswer = async (req: any, res: Response) => {
   try {
     const { taskId } = req.params as { taskId: string };
     const { optionId } = req.body;
