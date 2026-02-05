@@ -4,7 +4,7 @@ import initSession from './Session';
 import initOption from './Option';
 import initAnswer from './Answer';
 
-// ПРЯМОЙ КОНФИГ - БЕЗ ИМПОРТОВ
+// direct connection to database
 const isProd = process.env.NODE_ENV === 'production';
 
 const productionConfig = {
@@ -41,13 +41,13 @@ const db: any = {
   Sequelize,
 };
 
-// Инициализация моделей
+// init models
 db.Task = initTask(sequelize);
 db.Session = initSession(sequelize);
 db.Option = initOption(sequelize);
 db.Answer = initAnswer(sequelize);
 
-// Связи
+// init relations
 db.Task.hasMany(db.Option, { foreignKey: 'taskId', as: 'options' });
 db.Option.belongsTo(db.Task, { foreignKey: 'taskId' });
 db.Task.hasMany(db.Answer, { foreignKey: 'taskId' });
