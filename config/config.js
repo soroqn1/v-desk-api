@@ -19,19 +19,12 @@ module.exports = {
   production: {
     use_env_variable: 'DATABASE_URL',
     dialect: 'mysql',
-    protocol: 'mysql',
     dialectOptions: {
       connectTimeout: 60000,
       ssl: {
         require: true,
         rejectUnauthorized: false
       }
-    },
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 60000,
-      idle: 10000
     }
   }
 };

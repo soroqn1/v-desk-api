@@ -8,8 +8,8 @@ import initSession from './Session';
 import initOption from './Option';
 import initAnswer from './Answer';
 
-const sequelize = config.use_env_variable
-  ? new Sequelize(process.env[config.use_env_variable]!, config)
+const sequelize = config.use_env_variable && process.env[config.use_env_variable]
+  ? new Sequelize(process.env[config.use_env_variable] as string, config)
   : new Sequelize(config.database, config.username, config.password, config);
 const db = {
   sequelize,
