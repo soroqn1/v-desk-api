@@ -25,7 +25,8 @@ module.exports = {
     dialect: 'mysql',
     dialectOptions: {
       ssl: {
-        rejectUnauthorized: true
+        require: true,
+        rejectUnauthorized: false
       }
     }
   }
