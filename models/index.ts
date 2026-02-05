@@ -1,7 +1,8 @@
 import { Sequelize } from 'sequelize';
 import * as configData from '../config/config.js';
-const env = (process.env.NODE_ENV || 'development') as keyof typeof configData;
-const config = (configData as any)[env];
+const allConfig = (configData as any).default || configData;
+const env = (process.env.NODE_ENV || 'development') as string;
+const config = allConfig[env];
 
 import initTask from './Task';
 import initSession from './Session';
