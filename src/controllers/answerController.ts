@@ -6,8 +6,8 @@ const { Answer, Option } = db;
 
 export const submitAnswer = async (req: AuthRequest, res: Response) => {
   try {
-    const { taskId } = (req as any).params as { taskId: string };
-    const { optionId } = (req as any).body;
+    const { taskId } = req.params as { taskId: string };
+    const { optionId } = req.body;
     const { sessionId } = req;
 
     const taskIdNum = parseInt(taskId, 10);

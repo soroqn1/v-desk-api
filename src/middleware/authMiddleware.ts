@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import db from '../../models';
 
-export type AuthRequest = Request & {
+export interface AuthRequest extends Request {
   sessionId?: number;
   token?: string;
-};
+}
 
 export const authMiddleware = async (
   req: AuthRequest,
@@ -12,7 +12,7 @@ export const authMiddleware = async (
   next: NextFunction
 ) => {
   try {
-    const authHeader = (req as any).headers.authorization as string;
+    const authHeader = req.headers.authorization as string;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return res.status(401).json({ error: 'Missing token' });
     }
