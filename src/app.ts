@@ -32,9 +32,18 @@ const startServer = async () => {
 
     await db.sequelize.authenticate();
     console.log('Database connected successfully.');
-  } catch (error) {
-    console.error('Database connection failed:', error);
+    await db.sequelize.sync({ alter: true });
+    console.log('Database tables synced.');
+  } catch (error: any) {
+    console.error('CRITICAL ERROR DURING STARTUP:');
+    console.error(error.message);
+    console.error(error.stack);
   }
 };
+
+app.use((err: any, req: any, res: any, next: any) => {
+  console.error('API ERROR:', err);
+  res.status(500).json({ error: err.message });
+});
 
 startServer();
