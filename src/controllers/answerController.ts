@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import db from '../../models';
 import { AuthRequest } from '../middleware/authMiddleware';
 
@@ -6,8 +6,8 @@ const { Answer, Option } = db;
 
 export const submitAnswer = async (req: AuthRequest, res: Response) => {
   try {
-    const { taskId } = req.params as { taskId: string };
-    const { optionId } = req.body;
+    const { taskId } = (req as any).params as { taskId: string };
+    const { optionId } = (req as any).body;
     const { sessionId } = req;
 
     const taskIdNum = parseInt(taskId, 10);
