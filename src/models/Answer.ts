@@ -51,6 +51,12 @@ export default (sequelize: Sequelize) => {
       modelName: 'Answer',
       tableName: 'answers',
       timestamps: true,
+      indexes: [
+        {
+          unique: true,
+          fields: ['sessionId', 'taskId']
+        }
+      ]
     }
   );
 
